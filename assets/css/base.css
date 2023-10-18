@@ -1,0 +1,150 @@
+:root{
+    --subject-color: #7e5eff;
+    --secondary-color: #fcd253;
+    --text-black: #111;
+    --text-white: #f1f1f1;
+    --top-nav-height: 36px;
+    --header-main-height: 80px;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*{
+    box-sizing: inherit;
+    margin: 0;
+}
+
+
+.m-t-2{
+    margin-top: 2px !important;
+}
+
+.border-radius-2{
+    border-radius: 2px;
+}
+
+.full-height{
+    height: 100%;
+}
+
+/* Custom radio input */
+
+.radio-container{
+    display: flex;
+    align-items: center;
+    position:relative;
+    cursor:pointer;
+    user-select: none;
+    padding-left:30px;
+    margin-bottom:10px;
+}
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkmark{
+    position:absolute;
+    top:3px;
+    left:0;
+    width:1.4rem;
+    height:1.4rem;
+    background:#eee;
+    border-radius:50%;
+}
+.radio-container:hover .checkmark{
+    background:#ccc;
+}
+.checkmark:after{
+    content:"";
+    position:absolute;
+    display:none;
+}
+.radio-container .checkmark:after{
+    top:50%;
+    left:50%;
+    width: 1rem;
+    height: 1rem;
+    border-radius:50%;
+    border: solid 3px white;
+    transform:translate(-50%,-50%) rotate(45deg);
+}
+.radio-container input:checked ~ .checkmark{
+    background:var(--subject-color);
+}
+.radio-container input:checked ~ .checkmark:after{
+    display:block;
+}
+
+/* Custom button player */
+.player-btn
+{
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes scale{
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to
+    {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity:1;
+    }
+}
+@keyframes appearIn {
+    from{
+        opacity: 0;
+        transform: translateY(-20%);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toggleIn {
+    from{
+        transform: translateY(-100%);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+
+@keyframes spinAndRun {
+    from{
+        transform:translateX(-100px) rotate(0deg);
+    }
+    to{
+        transform:translateX(100px) rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
