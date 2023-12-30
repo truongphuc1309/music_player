@@ -1,27 +1,10 @@
-// *** 1 .render songs
-// ***2. Play/ pause/ seek 
-// ***3. Cd rotate 
-// ***4. Next/prev
-// ***5. Random
-// ***6. Next/ repeat when ended
-// ***7. Active song
-// ***8. Scroll song active into view
-// ***9. Play song when click
-
-
-// Fix bug:
-// ***1. Next có vấn đề
-// ***2. Bật play list
-// ***3. Tua timeline
-// ***4. Gioi han dong
-// ***5. Responsive
-// *** 6. hien thi thoi gian
-// ***  7. list bottom
+import songs from "../assets/data/songs.js"
 
 localStorage.setItem('config', JSON.stringify({
     repeat: false,
     random: false,
 }))
+
 var $ = document.querySelector.bind(document)
 var $$ = document.querySelectorAll.bind(document)
 var audio = $('#audio')
@@ -29,7 +12,7 @@ var songImg = $('.player__music-img')
 var subStatusBtn
 var spinSongImg = songImg.animate([
     {transform: 'rotate(0)'},
-    {transform: 'rotate(360deg'}
+    {transform: 'rotate(360deg)'}
 ],{
     duration: 10000,
     iterations: Infinity,
@@ -54,50 +37,7 @@ var app = {
     currentIndex: 0,
     wasPlayed: [],
     isPlaying: false,
-    songs: [
-        {
-            name: 'Beautiful In White',
-            artist: 'Shane Filan',
-            path: '/assets/mp3/beautiful_in_white.mp3',
-            image: '/assets/image/beautiful_in_white.jpg',
-        },
-        {
-            name: 'My Love',
-            artist: 'Westlife',
-            path: '/assets/mp3/my_love.mp3',
-            image: '/assets/image/my_love.jpeg',
-        },
-        {
-            name: 'Nothing Gonna Change My Love For You',
-            artist: 'Westlife',
-            path: '/assets/mp3/nothing_gonna_change_my_love_for_you.mp3',
-            image: '/assets/image/nothing_gonna_change_my_love_for_you.jpeg',
-        },
-        {
-            name: 'The Rose',
-            artist: 'Westlife',
-            path: '/assets/mp3/the_rose.mp3',
-            image: '/assets/image/the_rose.jpeg',
-        },
-        {
-            name: 'Better Man',
-            artist: 'Westlife',
-            path: '/assets/mp3/better_man.mp3',
-            image: '/assets/image/better_man.jpeg',
-        },
-        {
-            name: 'Season In The Sun',
-            artist: 'Westlife',
-            path: '/assets/mp3/season_in_the_sun.mp3',
-            image: '/assets/image/season_in_the_sun.jpeg',
-        },
-        {
-            name: 'Too Hard To Say Good Bye',
-            artist: 'Westlife',
-            path: '/assets/mp3/too_hard_to_say_goodbye.mp3',
-            image: '/assets/image/too_hard_to_say_goodbye.jpeg',
-        },
-    ],
+    songs: songs,
 
     setConfig: function(key, value){
         this.config[key] = value
